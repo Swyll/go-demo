@@ -109,3 +109,23 @@ GET: 32208.19 requests per second, p50=0.735 msec                      <br>
 ### 总结，在字节小于1000字节的时候redis的get和set的qps波动不大，到了5000字节甚至之上qps波动直接腰斩
 
 ## Redis对不同字节大小的Value的key的大小
+
+### 1W字节
+[root@swy redis]# redis-memory-for-key -s 127.0.0.1 1
+Key				1
+Bytes				10280
+Type				string
+
+### 10W字节
+[root@swy redis]# redis-memory-for-key -s 127.0.0.1 2
+Key				2
+Bytes				114728
+Type				string
+
+### 50W字节
+[root@swy redis]# redis-memory-for-key -s 127.0.0.1 2
+Key				2
+Bytes				524328
+Type				string
+
+
