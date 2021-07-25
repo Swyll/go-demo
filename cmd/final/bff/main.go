@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"go-demo/config/ini"
 	acountpb "go-demo/internal/final/bff/acount/proto"
 	commentpb "go-demo/internal/final/bff/comment/proto"
@@ -19,7 +20,7 @@ import (
 )
 
 var (
-	iniPath = flag.String("iniPath", "../../../etc/comment.ini", "")
+	iniPath = flag.String("iniPath", "../../../etc/bff.ini", "")
 )
 
 func main() {
@@ -30,7 +31,7 @@ func main() {
 	conf := new(commentconf.CommentConf)
 	err := parse.Load(*iniPath, conf)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println(err)
 		return
 	}
 

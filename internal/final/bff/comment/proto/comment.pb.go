@@ -302,7 +302,7 @@ func (*Queryreq) Descriptor() ([]byte, []int) {
 
 func (x *Queryreq) GetCommentID() string {
 	if x != nil {
-		return x.CommentID
+		return x.AcountID
 	}
 	return ""
 }
