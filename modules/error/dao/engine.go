@@ -3,6 +3,7 @@ package dao
 import (
 	"database/sql"
 	"fmt"
+	"go-demo/internal/final/account/acountconf"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/pkg/errors"
@@ -10,7 +11,7 @@ import (
 
 type myEngine struct{}
 
-func NewEngine() *myEngine {
+func NewEngine(conf acountconf.AcountConf) *myEngine {
 	return &myEngine{}
 }
 

@@ -1,0 +1,39 @@
+syntax="proto3";
+
+package comment;
+
+option go_package = "./";
+
+service CommentSer{
+	rpc DeleteComment(DeleteReq)returns (DeleteResp){};
+	rpc AddComment(AddReq)returns (AddResp){};
+	rpc QueryComment(Queryreq) returns (QueryResp){};
+};
+
+message Comment{
+	string CommentID=1;
+	string AcountID=2;
+	string CommentData=3;
+};
+
+message DeleteReq{
+	string ID=1;
+};
+
+message DeleteResp{};
+
+message AddReq{
+	Comment Comment=1;
+};
+
+message AddResp{};
+
+message Queryreq{
+	string CommentID=1;
+	int64 Limit=2;
+	int64 Offset=3;
+};
+
+message QueryResp{
+	repeated Comment Comments=1;
+};

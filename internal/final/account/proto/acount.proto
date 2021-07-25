@@ -1,0 +1,40 @@
+syntax="proto3";
+
+package acount;
+
+option go_package = "./";
+
+service AcountSer{
+	rpc DeleteAcount(DeleteReq)returns (DeleteResp){};
+	rpc AddAcount(AddReq)returns (AddResp){};
+	rpc QueryAcount(Queryreq) returns (QueryResp){};
+};
+
+message Acount{
+	string AcountID=1;
+	string Name=2;
+	string EmailAddr=3;
+	int64 Age=4;
+};
+
+message DeleteReq{
+	string ID=1;
+};
+
+message DeleteResp{};
+
+message AddReq{
+	Acount Acount=1;
+};
+
+message AddResp{};
+
+message Queryreq{
+	string AcountID=1;
+	int64 Limit=2;
+	int64 Offset=3;
+};
+
+message QueryResp{
+	repeated Acount Acounts=1;
+};
